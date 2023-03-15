@@ -1,0 +1,130 @@
+[gd_scene load_steps=7 format=3 uid="uid://bg8qoqpdx638u"]
+
+[ext_resource type="PackedScene" uid="uid://d1bo5v444uwjg" path="res://brique.tscn" id="1_7ydg2"]
+[ext_resource type="Script" path="res://Panel.gd" id="2_ajaa1"]
+[ext_resource type="PackedScene" uid="uid://vqa6iq80b4bg" path="res://ball.tscn" id="2_thx7w"]
+[ext_resource type="PackedScene" uid="uid://dndgq30cos30d" path="res://player.tscn" id="3_36l1o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0v16s"]
+size = Vector2(28, 647.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nwh31"]
+size = Vector2(1216, 20)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Ball" parent="." instance=ExtResource("2_thx7w")]
+position = Vector2(806, 568)
+scale = Vector2(0.5, 0.5)
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+offset_left = -4.0
+offset_top = -10.0
+offset_right = 36.0
+offset_bottom = 30.0
+scale = Vector2(29, 16.6164)
+script = ExtResource("2_ajaa1")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 7.89655
+offset_top = 12.8186
+offset_right = 109.897
+offset_bottom = 38.8186
+scale = Vector2(0.238323, 0.430675)
+text = "Game over :'("
+
+[node name="Brique" parent="." instance=ExtResource("1_7ydg2")]
+position = Vector2(119, 44)
+scale = Vector2(0.5, 0.5)
+
+[node name="Brique2" parent="." instance=ExtResource("1_7ydg2")]
+position = Vector2(237, 43)
+scale = Vector2(0.5, 0.5)
+
+[node name="Brique3" parent="." instance=ExtResource("1_7ydg2")]
+position = Vector2(354, 42)
+scale = Vector2(0.5, 0.5)
+
+[node name="Brique4" parent="." instance=ExtResource("1_7ydg2")]
+position = Vector2(470, 42)
+scale = Vector2(0.5, 0.5)
+
+[node name="Brique5" parent="." instance=ExtResource("1_7ydg2")]
+position = Vector2(586, 43)
+scale = Vector2(0.5, 0.5)
+
+[node name="Brique6" parent="." instance=ExtResource("1_7ydg2")]
+position = Vector2(701, 44)
+scale = Vector2(0.5, 0.5)
+
+[node name="Brique7" parent="." instance=ExtResource("1_7ydg2")]
+position = Vector2(817, 42)
+scale = Vector2(0.5, 0.5)
+
+[node name="Brique8" parent="." instance=ExtResource("1_7ydg2")]
+position = Vector2(933, 38)
+scale = Vector2(0.5, 0.5)
+
+[node name="Brique9" parent="." instance=ExtResource("1_7ydg2")]
+position = Vector2(1047, 40)
+scale = Vector2(0.5, 0.5)
+
+[node name="Brique10" parent="." instance=ExtResource("1_7ydg2")]
+position = Vector2(177, 86)
+scale = Vector2(0.5, 0.5)
+
+[node name="Brique11" parent="." instance=ExtResource("1_7ydg2")]
+position = Vector2(297, 86)
+scale = Vector2(0.5, 0.5)
+
+[node name="Brique12" parent="." instance=ExtResource("1_7ydg2")]
+position = Vector2(413, 84)
+scale = Vector2(0.5, 0.5)
+
+[node name="Brique13" parent="." instance=ExtResource("1_7ydg2")]
+position = Vector2(533, 84)
+scale = Vector2(0.5, 0.5)
+
+[node name="Brique14" parent="." instance=ExtResource("1_7ydg2")]
+position = Vector2(653, 84)
+scale = Vector2(0.5, 0.5)
+
+[node name="Brique15" parent="." instance=ExtResource("1_7ydg2")]
+position = Vector2(771, 82)
+scale = Vector2(0.5, 0.5)
+
+[node name="Brique16" parent="." instance=ExtResource("1_7ydg2")]
+position = Vector2(885, 82)
+scale = Vector2(0.5, 0.5)
+
+[node name="Brique17" parent="." instance=ExtResource("1_7ydg2")]
+position = Vector2(1001, 82)
+scale = Vector2(0.5, 0.5)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-4, -5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-12, 327.25)
+shape = SubResource("RectangleShape2D_0v16s")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(1060, 75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(111, 246)
+shape = SubResource("RectangleShape2D_0v16s")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(56, -45)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(523, 33)
+shape = SubResource("RectangleShape2D_nwh31")
+
+[node name="Player" parent="." instance=ExtResource("3_36l1o")]
+position = Vector2(608, 606)
+
+[connection signal="out_of_bounds" from="Ball" to="Panel" method="_on_ball_out_of_bounds"]

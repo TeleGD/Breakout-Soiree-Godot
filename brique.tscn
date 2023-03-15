@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1bo5v444uwjg"]
+
+[ext_resource type="Script" path="res://Brique.gd" id="1_4fsfb"]
+[ext_resource type="Texture2D" uid="uid://b3pv8w0n7dwkd" path="res://Break_out/Brique_simple.png" id="2_34ibx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3e5om"]
+size = Vector2(227, 75)
+
+[node name="Brique" type="StaticBody2D" groups=["Brique"]]
+position = Vector2(500, 40)
+script = ExtResource("1_4fsfb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_34ibx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 4.5)
+shape = SubResource("RectangleShape2D_3e5om")

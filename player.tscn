@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://dndgq30cos30d"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_a7ept"]
+[ext_resource type="Texture2D" uid="uid://bq1m55l5n8cji" path="res://Break_out/Sprites/Player2.png" id="1_y5dox"]
+[ext_resource type="Texture2D" uid="uid://dmdqqb74u3q1r" path="res://Break_out/Sprites/Player1.png" id="2_2kfin"]
+[ext_resource type="Texture2D" uid="uid://dx5wup68pd0sw" path="res://Break_out/Sprites/Player3.png" id="4_osack"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6s83l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2kfin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_y5dox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_osack")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gy6u3"]
+radius = 23.0
+height = 202.0
+
+[node name="Player" type="StaticBody2D"]
+position = Vector2(0, 2)
+script = ExtResource("1_a7ept")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6s83l")
+autoplay = "default"
+frame_progress = 0.880427
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_gy6u3")
